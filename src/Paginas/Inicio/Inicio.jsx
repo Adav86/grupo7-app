@@ -5,22 +5,54 @@ import { CarruselMiniatura } from "../../Componentes/CarruselMiniatura/CarruselM
 
 export const Inicio = () => {
 
-    const [listaJuegos, setListaJuegos] = useState([]);
+    const [masBuscados, setMasBuscados] = useState([]);
+    const [valorados, setValorados] = useState([]);
+    const [nuevos, setNuevos] = useState([]);
 
     const getJuegos = async () => {
-        const data = await juegosApi('games', { page_size: 8 });
-        setListaJuegos(data);
+        /* Se llena la lista con los mas buscados */
+        const data1 = await juegosApi('games', { page_size: 8 });
+        setMasBuscados(data1);
+
+        /* Ahora buscamos los mejor valorados */
+        const data2 = await juegosApi('games', { page_size: 8, ordering:'rating' });
+        setValorados(data2);
+
+        /* Finalmente llenamos la lista de los mas nuevos */
+        const data3 = await juegosApi('games', { page_size: 8, ordering:'created' });
+        setNuevos(data3);  
+        
     }
 
     useEffect(() => {
-        if (listaJuegos && listaJuegos.length === 0) {
+        if (masBuscados && masBuscados.length === 0) {
             getJuegos();
         }
-    }, [listaJuegos])
+    }, [masBuscados])
 
     return (
         <>
-            { listaJuegos.length > 0 ? < CarruselMiniatura listadoJuego={listaJuegos} /> : '' }
+            {/* Los más buscados */
+                masBuscados.length > 0 ?
+                    <>
+                        <h2>Los más buscados</h2>
+                        < CarruselMiniatura listadoJuego={masBuscados} />
+                    </> : ''
+            }
+            {/* Mejor valorados */
+                valorados.length > 0 ?
+                    <>
+                        <h2>Mejor valorados</h2>
+                        < CarruselMiniatura listadoJuego={valorados} />
+                    </> : ''
+            }
+            {/* Nuevos */
+                nuevos.length > 0 ?
+                    <>
+                        <h2>Nuevos</h2>
+                        < CarruselMiniatura listadoJuego={nuevos} />
+                    </> : ''
+            }
         </>
     )
 
