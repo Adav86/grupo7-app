@@ -2,7 +2,7 @@ import "./Carrusel.css"
 import second from 'first'
 import "./Carrusel.css";import Carousel from 'react-bootstrap/Carousel';
 
-function IndividualIntervalsExample() {
+function Carrusel() {
   return (
     <Carousel>
       <Carousel.Item interval={1000}>
@@ -44,4 +44,4 @@ function IndividualIntervalsExample() {
   );
 }
 
-export default IndividualIntervalsExample;
+export default Carrusel;
