@@ -33,13 +33,8 @@ export const Inicio = () => {
     }, [masBuscados])
 
     return (
-<<<<<<< HEAD
-       <div>
+        <> 
         <Carrusel/>
-        <Miniatura objetoJuego={objetoJuego}/>
-        </div> 
-=======
-        <>
             {/* Los más buscados */
                 masBuscados.length > 0 ?
                     <>
@@ -62,7 +57,6 @@ export const Inicio = () => {
                     </> : ''
             }
         </>
->>>>>>> main
     )
 
 }
