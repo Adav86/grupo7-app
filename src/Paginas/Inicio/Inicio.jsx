@@ -1,5 +1,4 @@
 import "./Inicio.css";
-import { objetoJuego } from "../../Componentes/Miniatura/objetoJuego";
 import {Carrusel} from "../../Componentes/Carrusel/Carrusel";
 import { useState, useEffect } from "react";
 import { juegosApi } from "../../Utilidades/api";
