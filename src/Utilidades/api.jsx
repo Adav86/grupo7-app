@@ -14,7 +14,7 @@ const urlTraductor = `https://deep-translate1.p.rapidapi.com/language/translate/
     Entonces para llamar al metodo seria: juegosApi('games', { page_size:4, ordering:'created' })
 */
 export const juegosApi = async (url = 'games', parametros = {}) => {
-    let parametrosURL;
+    let parametrosURL='';
     if (Object.keys(parametros).length > 0) {
         Object.keys(parametros).map(valor => {
             parametrosURL = `&${valor}=${parametros[valor]}`
@@ -24,7 +24,10 @@ export const juegosApi = async (url = 'games', parametros = {}) => {
     return await axios.get(`${urlJuegos}${url}?key=${key}${parametrosURL}`)
         .then(respuesta => respuesta.data)
         .then(respuesta => {
-            return respuesta.results
+            if(respuesta.results){
+                return respuesta.results
+            }
+            return respuesta;
         })
         .catch(error => {
             console.log(error);
