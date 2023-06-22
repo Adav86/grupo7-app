@@ -7,11 +7,13 @@ import { LogoCarga } from '../../Componentes/Logo/LogoCarga';
 import { obtenerIconoPlataforma } from '../../Utilidades/iconos';
 import { FaChevronLeft } from 'react-icons/fa';
 import { BsFillHandThumbsUpFill, BsHandThumbsUp, BsStarFill, BsStar } from 'react-icons/bs';
+import { MeGusta } from '../../Componentes/Iconos/MeGusta/MeGusta';
+import { Favorito } from '../../Componentes/Iconos/Favorito/Favorito';
 
 export const DetalleJuego = () => {
 
     const [juego, setJuego] = useState(null);
-    const [cargando, setCargando] = useState(true);
+    const [cargando, setCargando] = useState(null);
     const [megusta, setMegusta] = useState(false);
     const [favorito, setFavorito] = useState(false);
 
@@ -19,14 +21,19 @@ export const DetalleJuego = () => {
     const { juegoId } = useParams();
 
     const getJuego = async () => {
-        const result = await juegosApi(`games/${juegoId}`);
-        /*         const descripcion = await traductorApi(result.description_raw);
-                if(descripcion){
-                    setJuego({...result, descripcion});
-                    setCargando(juego && juego.length > 0);
-                } */
-        setJuego(result);
-        setCargando(juego && juego.length > 0);
+        setCargando(true);
+        await juegosApi(`games/${juegoId}`).then(async res => {
+            if (res) {
+                const description_raw = res['description_raw']
+                    .replace(/\n/g, '')
+                    .replace(/\r/g, '')
+                    .split(".", 4)
+                    .join(',');
+                const descripcion = await traductorApi(description_raw);
+                setJuego({ ...res, descripcion });
+                setCargando(juego && juego.length > 0);
+            }
+        });
     }
 
     const obtenerPlataformas = (plataformas) => {
@@ -40,18 +47,21 @@ export const DetalleJuego = () => {
         return iconosPlataformas;
     }
 
-    const onMegusta = () => {
-        setMegusta(prevMegusta => !prevMegusta);
-        console.log("megusta ", megusta);
-    }
     const onFavorito = () => {
         setFavorito(prevFavorito => !prevFavorito);
         console.log("favorito ", favorito);
     }
 
+    const onMeGusta = () => {
+        setMegusta(prevState => !prevState);
+        console.log("me gusta ", megusta);
+    }
+
     useEffect(() => {
-        getJuego();
-    }, [])
+        if (cargando === null) {
+            getJuego();
+        }
+    }, [cargando])
 
     if (juego && Object.keys(juego).length > 0) {
         return (
@@ -61,12 +71,8 @@ export const DetalleJuego = () => {
                         <FaChevronLeft onClick={() => navigate(-1)} />
                     </div>
                     <div className="interaccion">
-                        <button onClick={() => onMegusta()}>
-                            {megusta ? <BsFillHandThumbsUpFill className='megusta' /> : <BsHandThumbsUp />}
-                        </button>
-                        <button onClick={() => onFavorito()}>
-                            {favorito ? <BsStarFill className='favorito' /> : <BsStar />}
-                        </button>
+                        <MeGusta onClick={() => onMeGusta()} />
+                        <Favorito onClick={() => onFavorito()} />
                     </div>
                 </div>
                 <div className='description'>
@@ -75,7 +81,7 @@ export const DetalleJuego = () => {
                         {obtenerPlataformas(juego.platforms)}
                     </div>
                     <h1>{juego.name}</h1>
-                    <p>{juego.description_raw}</p>
+                    <p>{juego.descripcion}</p>
 
                 </div>
             </div >
