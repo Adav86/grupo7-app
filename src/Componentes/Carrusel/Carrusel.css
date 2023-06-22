@@ -10,18 +10,22 @@
 }
 
 .carousel {
-    position: relative;
-    width: 100%;
+    
+    position: absolute;
+    height: auto;
+     max-height: 100%;
     margin-bottom: 20px;
 }
 
 .carousel-item img {
     height: auto;
+    object-fit: cover;
     max-height: 100%;
 }
 
 .carousel h5 {
     text-shadow: 2px 2px 2px #000;
+    font-family:'Rajdhani', sans-serif; 
 }
 
 .btn-carrusel {
@@ -36,6 +40,8 @@
     transition: all 0.3s ease;
     position: relative;
     display: inline-block;
+    font-family: 'Roboto', sans-serif;
+
 }
 
 .btn-carrusel {
@@ -53,12 +59,15 @@
     bottom: 0;
     left: 0;
     z-index: -1;
-    box-shadow: 0 0 5px #0bf4f3, 0 0 5px #0bf4f3 inset;
+    box-shadow: 0 0 5px lime 0 0 5px lime inset;
     transition: all 0.3s ease;
+<<<<<<< HEAD
 
+=======
+>>>>>>> main
 }
 
-.btn-carrusel:hover {}
+
 
 .btn-carrusel:hover:after {
     top: 0;
