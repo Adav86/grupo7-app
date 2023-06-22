@@ -22,7 +22,7 @@ export const Favorito = () => {
 
     return (
         <div
-            className={clickeado ? 'icono-wrapper fav anim' : 'icono-wrapper fav'}
+            className={clickeado ? 'icono-wrapper favorito anim' : 'icono-wrapper favorito'}
             style={{ pointerEvents: clickeable ? '' : 'none' }}
         >
             <span className="icono" onClick={() => favoritoAction()}>

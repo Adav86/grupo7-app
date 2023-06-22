@@ -19,13 +19,15 @@
 .favorito {
     color: #cfcb00;
 }
-.megusta{
+
+.megusta {
     color: #0b98ff;
 }
 
 .detalle .header .interaccion {
-    display: flex;
-    flex-flow: row;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
 }
 
 .detalle .header .interaccion svg:first-child {

@@ -1,15 +1,15 @@
-.fav.anim .icono {
+.favorito.anim .icono {
     color: #ffbc00;
 }
 
-.fav .borde span {
+.favorito .borde span {
     border: 1px solid #ffbc00;
 }
 
-.fav.anim .satellite span:nth-child(1) {
+.favorito.anim .satellite span:nth-child(1) {
     background: #ffbc00;
 }
 
-.fav .spark span {
+.favorito .spark span {
     background: #ffbc00;
 }
