@@ -8,29 +8,28 @@ export const Navbar = () => {
   return (
     <ul className="navbar-nav me-auto mb-2 mb-lg-0  ">
       <li className="nav-item icon">
-        <a className="navegacion-icono" href="#">
-          <BiCategory />
-        </a>
-        <p className="fuente-principal regular">
-          <Link to={"/generos"}>Géneros</Link>
-        </p>
+        <Link to={"/generos"}>
+          < BiCategory />
+          <p className="fuente-principal regular">Generos</p>
+        </Link>
       </li>
       <li className="nav-item icon">
-        <a className="navegacion-icono" href="#">
+        <Link to={"/plataformas"}>
           <FaGamepad />
-        </a>
-        <p className="fuente-principal regular">
-          <Link to={"/plataformas"}>Plataformas</Link>
-        </p>
+          <p className="fuente-principal regular">
+            Plataformas
+          </p>
+        </Link>
       </li>
       <li className="nav-item icon ">
-        <a className="navegacion-icono" href="#">
+        <Link to={"/login"}>
           <BsFillPersonFill />
-        </a>
-        <p className="fuente-principal regular text-center">
-          <Link to={"/login"}>Login</Link>
-        </p>
+          <p className="fuente-principal regular text-center">
+            Login
+          </p>
+        </Link>
       </li>
     </ul>
+
   );
 };
