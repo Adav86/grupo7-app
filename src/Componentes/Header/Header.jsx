@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { Logo } from '../Logo/Logo';
 import { ImSearch } from "react-icons/im";
 import { Navbar } from "../Navbar/Navbar";
@@ -7,12 +8,10 @@ export const Header = () => {
   return (
     <nav className="navbar navbar-expand navbar-dark navbar-bg ">
       <div className="container-fluid d-flex">
-        <a className="navbar-brand " href="/">
+        <Link className="navbar-brand " to={"/"}>
           <Logo />
-        </a>
-
+        </Link>
         <div className="navbar-collapse " id="navbarSupportedContent">
-
           <form className="d-flex mx-auto w-75">
             <input className="form-control me-2" type="search" placeholder="Con que te quieres enviciar hoy?" aria-label="Search" />
             <button className="btn btn-outline-success" type="submit"><ImSearch /></button>
