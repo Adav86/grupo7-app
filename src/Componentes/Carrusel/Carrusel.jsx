@@ -13,9 +13,19 @@ export const Carrusel = ({ sliders }) => {
                 className={key === 1 ? 'carousel-item active' : 'carousel-item'}
                 style={{ backgroundImage: `url(${slider.background_image})` }}
               >
-                <div class="carousel-caption">
-                  <h5>{slider.name}</h5>
-                  <p><button className="btn-carrusel">{slider.action}</button></p>
+                <div className="title">{slider.name}</div>
+                <div className="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tincidunt purus eget justo dignissim euismod. Donec non quam commodo, consequat orci nec...</div>
+                <div className="more">
+                  <button class="more-btn" type="button">
+                    <strong>VER MÁS</strong>
+                    <div id="container-stars">
+                      <div id="stars"></div>
+                    </div>
+                    <div id="glow">
+                      <div class="circle"></div>
+                      <div class="circle"></div>
+                    </div>
+                  </button>
                 </div>
               </div>
             ))
