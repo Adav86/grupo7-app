@@ -22,12 +22,12 @@ export const Inicio = () => {
         sliderRes.push({ ...getDataAleatoria(data1), action: 'Más Buscado' });
 
         /* Ahora buscamos los mejor valorados */
-        const data2 = await juegosApi('games', { page_size: 8, ordering: 'rating' });
+        const data2 = await juegosApi('games', { page_size: 8, ordering: '-metacritic' });
         setValorados(data2);
         sliderRes.push({ ...getDataAleatoria(data2), action: 'Mejor Valorado' });
 
         /* Finalmente llenamos la lista de los mas nuevos */
-        const data3 = await juegosApi('games', { page_size: 8, ordering: 'created' });
+        const data3 = await juegosApi('games', { page_size: 8, ordering: '-created' });
         setNuevos(data3);
         sliderRes.push({ ...getDataAleatoria(data3), action: 'Más Nuevo' });
         setSliders(sliderRes);
