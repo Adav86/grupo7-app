@@ -14,3 +14,8 @@
     font-size: 14px;
     font-size: clamp(.88rem, 14px, 1.5rem);
 }
+
+.enlace-plataformas {
+    color: #333;
+    text-decoration: none;
+  }

@@ -4,8 +4,9 @@ import { Header } from "./Componentes/Header/Header";
 import { Inicio } from "./Paginas/Inicio/Inicio";
 import { Generos } from "./Paginas/Generos/Generos";
 import { DetalleJuego } from "./Paginas/Detalle/Detalle";
-import {Login} from "./Paginas/Login/Login";
-import {Plataformas} from "./Paginas/Plataformas/Plataformas";
+import { Login } from "./Paginas/Login/Login";
+import { Plataformas } from "./Paginas/Plataformas/Plataformas";
+import { ListaPorPlataformas } from "./Paginas/ListaPlataformas/ListaPorPlataformas";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.min.js";
 
@@ -20,6 +21,7 @@ function App() {
         <Route path="/juego/:juegoId" element={<DetalleJuego/>}></Route>
         <Route path="/login" element={<Login/>}></Route>
         <Route path="/plataformas" element={<Plataformas/>}></Route>
+        <Route path="/plataformas/:plataformasId" element={<ListaPorPlataformas/>}></Route>
       </Routes>
     </BrowserRouter>
   );
