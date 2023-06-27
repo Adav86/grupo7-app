@@ -2,7 +2,8 @@ import { useState, useEffect } from "react";
 import { LogoCarga } from "../../Componentes/Logo/LogoCarga";
 import { Miniatura } from "../../Componentes/Miniatura/Miniatura";
 import { juegosApi } from "../../Utilidades/api";
-//import "./Generos.css"
+import { DetalleGenero } from "./DetalleGenero";
+import "./Generos.css"
 
 export const Generos = () => {
 
@@ -37,7 +38,7 @@ export const Generos = () => {
             generos && generos.length > 0 ?
               generos.map((genero, key) => (
                 <div className="col-6 col-sm-4 col-lg-3">
-                  <Miniatura key={key} objetoJuego={genero} enlaceDetalle={'https://google.com.ar'} />
+                  <Miniatura key={key} objetoJuego={genero} enlaceDetalle={`/detallegenero/${genero.name}/${genero.id}`} />
                 </div>
               ))
               : ''
