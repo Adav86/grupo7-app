@@ -1,0 +1,7 @@
+.botonera .boton-plataforma {
+    color: #333 !important;
+}
+
+.btn-check:checked+.boton-plataforma{
+    color: var(--color-terciario) !important;
+}

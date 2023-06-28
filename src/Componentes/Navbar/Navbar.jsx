@@ -10,7 +10,7 @@ export const Navbar = () => {
       <li className="nav-item icon">
         <Link to={"/generos"}>
           < BiCategory />
-          <p className="fuente-principal regular">Generos</p>
+          <p className="fuente-principal regular">Géneros</p>
         </Link>
       </li>
       <li className="nav-item icon">
