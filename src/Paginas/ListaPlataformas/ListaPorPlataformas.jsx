@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { LogoCarga } from "../../Componentes/Logo/LogoCarga";
 import { juegosApi } from "../../Utilidades/api";
-import { Botonera } from "./Botonera"
-import { FaChevronLeft } from 'react-icons/fa';
+import { Botonera } from "./Botonera";
+import { FaChevronLeft } from "react-icons/fa";
 import "./ListaPorPlataformas.css";
 
 export const ListaPorPlataformas = () => {
@@ -28,29 +28,27 @@ export const ListaPorPlataformas = () => {
     }
   }, [cargando, plataformas]);
 
-  
   if (cargando) {
     return <LogoCarga />;
   } else {
     return (
       <div className="container-fluid pt-3">
         <div className="navegacion">
-              <FaChevronLeft onClick={() => navigate(-1)} />
-          </div>
-          {plataformas && plataformas.length > 0
-            ? plataformas.map((plataforma) => 
-            {if (plataforma.slug === plataformasId) {
-                  return (
-                    <div className="row" key={plataforma.id}>
+          <FaChevronLeft onClick={() => navigate(-1)} />
+        </div>
+        {plataformas && plataformas.length > 0
+          ? plataformas.map((plataforma) => {
+              if (plataforma.slug === plataformasId) {
+                return (
+                  <div className="row" key={plataforma.id}>
                     <h1 className="text-center titulo">{plataforma.name}</h1>
-                   
+
                     <Botonera plataforma={plataforma.platforms} />
-                    
-                  </div>)
-            
-            }})
-            : "" }
-        
+                  </div>
+                );
+              }
+            })
+          : ""}
       </div>
     );
   }

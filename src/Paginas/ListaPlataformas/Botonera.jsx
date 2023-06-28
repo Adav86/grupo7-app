@@ -31,8 +31,8 @@ export const Botonera = ({ plataforma }) => {
     const actualizarBotonSeleccionado = botonSeleccionado.map((item, index) =>
       index === posicion ? !item : item
     );
-    
-    setBotonSeleccionado(actualizarBotonSeleccionado)
+
+    setBotonSeleccionado(actualizarBotonSeleccionado);
 
     const ListaIdsPlataformas = [];
 
@@ -55,43 +55,46 @@ export const Botonera = ({ plataforma }) => {
 
   return (
     <div className="contenedor-botonera">
-
-{plataforma.length === 1 ? (
-  <div>
-  <h3>Tu lista de juegos</h3>
-  
-</div>
+      {plataforma.length === 1 ? (
+        <div>
+          <h3>Tu lista de juegos</h3>
+        </div>
       ) : (
-      <><div className="my-3">
+        <>
+          <div className="my-3">
             <h3>Elegí una plataforma</h3>
-          </div><div
+          </div>
+          <div
             className="btn-group botonera row row-cols-auto g-2 justify-content-around"
             role="group"
             aria-label="Basic checkbox toggle button group"
           >
-              {plataforma.map(({ name, id }, index) => {
-                return (
-                  <div key={id}>
-                    <div className="plataforma-list-item">
-                      <input
-                        type="checkbox"
-                        className="btn-check"
-                        id={`custom-checkbox-${index}`}
-                        name={name}
-                        value={name}
-                        checked={botonSeleccionado[index]}
-                        onChange={() => actualizarBotonera(index)} />
-                      <label
-                        className="btn boton-plataforma btn-outline-secondary"
-                        htmlFor={`custom-checkbox-${index}`}
-                      >
-                        {name}
-                      </label>
-                    </div>
+            {plataforma.map(({ name, id }, index) => {
+              return (
+                <div key={id}>
+                  <div className="plataforma-list-item">
+                    <input
+                      type="checkbox"
+                      className="btn-check"
+                      id={`custom-checkbox-${index}`}
+                      name={name}
+                      value={name}
+                      checked={botonSeleccionado[index]}
+                      onChange={() => actualizarBotonera(index)}
+                    />
+                    <label
+                      className="btn boton-plataforma btn-outline-secondary"
+                      htmlFor={`custom-checkbox-${index}`}
+                    >
+                      {name}
+                    </label>
                   </div>
-                );
-              })}{" "}
-            </div></>)}
+                </div>
+              );
+            })}{" "}
+          </div>
+        </>
+      )}
 
       {cargando ? (
         <LogoCarga />
