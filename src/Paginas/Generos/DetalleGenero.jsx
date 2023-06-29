@@ -15,7 +15,7 @@ export const DetalleGenero = () => {
 
   useEffect(() => {
     if (juegos === null) {
-        obtenerJuegos()
+      obtenerJuegos()
     }
   }, [cargando]);
 
@@ -34,18 +34,18 @@ export const DetalleGenero = () => {
 
   return (
     <div>
-        <div className="navegacion">
-                        <FaChevronLeft onClick={() => navi(-1)} />
-                    </div>
+      <div className="navegacion">
+        <FaChevronLeft onClick={() => navi(-1)} />
+      </div>
       <h1 className="fuente-principal">{nombregenero}</h1>
       <div className="container">
         <div className="row">
           {juegos && juegos.length > 0
             ? juegos.map((juego, key) => (
-                <div className="col-6 col-sm-4 col-lg-3">
-                  <Miniatura key={key} objetoJuego={juego} />
-                </div>
-              ))
+              <div className="col-6 col-sm-4 col-lg-3">
+                <Miniatura key={key} objetoJuego={juego} />
+              </div>
+            ))
             : ""}
         </div>
       </div>
