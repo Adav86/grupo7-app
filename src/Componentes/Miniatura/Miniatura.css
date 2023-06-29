@@ -23,19 +23,20 @@ h2 {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: top center;
-}
-
-.img_miniatura {
-    height: 100%;
-    object-fit: cover;
-    object-position: 70% 50%;
-
+    position: relative;
 }
 
 .titulo_miniatura {
     margin-top: 3px;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     color: #9d9d9d;
+    position: absolute;
+    bottom: -1rem;
+    left: 0;
+    background-color: #000000a8;
+    width: 100%;
+    text-align: center;
+    padding: 1rem 0;
 }
 
 

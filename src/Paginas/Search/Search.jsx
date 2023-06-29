@@ -4,6 +4,7 @@ import { juegosApi } from "../../Utilidades/api";
 import { LogoCarga } from "../../Componentes/Logo/LogoCarga";
 import { Miniatura } from "../../Componentes/Miniatura/Miniatura";
 import { FaChevronLeft } from 'react-icons/fa';
+import "./Search.css";
 
 export const Search = () => {
 
@@ -50,11 +51,13 @@ export const Search = () => {
   }
 
   return (
-    <div>
-      <div className="navegacion">
-        <FaChevronLeft onClick={() => navi(-1)} />
+    <>
+      <div className="header">
+        <div className="navegacion">
+          <FaChevronLeft onClick={() => navi(-1)} />
+        </div>
+        <h1 className="fuente-principal">Resultados para:{'\n'+searchText}</h1>
       </div>
-      <h1 className="fuente-principal">Resultado para: {searchText}</h1>
       <div className="container">
         <div className="row">
           {juegos && juegos.length > 0
@@ -66,6 +69,6 @@ export const Search = () => {
             : ""}
         </div>
       </div>
-    </div>
+    </>
   );
 };

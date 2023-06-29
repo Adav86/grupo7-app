@@ -11,7 +11,7 @@ import { Miniatura } from "../Miniatura/Miniatura";
 
 export const CarruselMiniatura = ({ listadoJuego, cantidadMiniaturas }) => {
     const [lista, setLista] = useState(listadoJuego);
-    const [cantidad, setCantidad] = useState(cantidadMiniaturas ?? 4);
+    const [cantidad, setCantidad] = useState(cantidadMiniaturas ?? 2);
 
     return (
         <>

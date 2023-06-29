@@ -10,9 +10,8 @@ export const Miniatura = ({ objetoJuego, enlaceDetalle }) => {
     <Link to={enlace} className="enlace-miniatura">
       <div key={juego.id} className="contenido_miniatura">
         <div className="box" style={{ backgroundImage: `url(${juego.background_image})` }}>
-          {/* <img className="img_miniatura" src={juego.background_image} alt={juego.name} /> */}
+          <h3 className="titulo_miniatura fuente-principal bold">{juego.name}</h3>
         </div>
-        <h3 className="titulo_miniatura fuente-principal bold">{juego.name}</h3>
       </div>
     </Link >
   );
