@@ -34,6 +34,7 @@ export const Generos = () => {
     return (
       <div className="container-fluid pt-3">
         <div className="row">
+          
           <h1 className="text-center">Generos</h1>
           {
             generos && generos.length > 0 ?

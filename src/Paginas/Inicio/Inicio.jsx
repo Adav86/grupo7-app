@@ -76,21 +76,21 @@ export const Inicio = () => {
                 {/* Los más buscados */
                     masBuscados.length > 0 ?
                         <>
-                            <h2>Los más buscados</h2>
+                            <h2 className="blacklime">Los más buscados</h2>
                             < CarruselMiniatura listadoJuego={masBuscados} />
                         </> : ''
                 }
                 {/* Mejor valorados */
                     valorados.length > 0 ?
                         <>
-                            <h2>Mejor valorados</h2>
+                            <h2 className="blacklime">Mejor valorados</h2>
                             < CarruselMiniatura listadoJuego={valorados} />
                         </> : ''
                 }
                 {/* Nuevos */
                     nuevos.length > 0 ?
                         <>
-                            <h2>Nuevos</h2>
+                            <h2 className="blacklime">Nuevos</h2>
                             < CarruselMiniatura listadoJuego={nuevos} />
                         </> : ''
                 }
