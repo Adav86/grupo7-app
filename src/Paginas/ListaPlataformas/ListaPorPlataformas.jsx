@@ -33,8 +33,10 @@ export const ListaPorPlataformas = () => {
   } else {
     return (
       <div className="container-fluid pt-3">
-        <div className="navegacion">
+        <div className="navegacion-plataformas clearfix">
+        <div className="icono-navegacion float-left">
           <FaChevronLeft onClick={() => navigate(-1)} />
+        </div>
         </div>
         {plataformas && plataformas.length > 0
           ? plataformas.map((plataforma) => {
