@@ -59,12 +59,12 @@ export const Botonera = ({ plataforma }) => {
     <div className="contenedor-botonera">
       {plataforma.length === 1 ? (
         <div>
-          <h3>Tu lista de juegos</h3>
+          <h3 className="fuente principal">Tu lista de juegos</h3>
         </div>
       ) : (
         <>
           <div className="my-3">
-            <h3>Elegí una plataforma</h3>
+            <h3 className="fuente principal">Elegí una plataforma</h3>
           </div>
           <div
             className="btn-group botonera row row-cols-auto g-2 position-sticky sticky-top justify-content-around"

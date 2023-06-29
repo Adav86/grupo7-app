@@ -37,7 +37,7 @@ export const DetalleGenero = () => {
         <div className="navegacion">
                         <FaChevronLeft onClick={() => navi(-1)} />
                     </div>
-      <h1 className="fuente-principal">{nombregenero}</h1>
+      <h1 className="blacklime">{nombregenero}</h1>
       <div className="container">
         <div className="row">
           {juegos && juegos.length > 0
