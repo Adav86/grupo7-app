@@ -11,7 +11,7 @@
 }
 
 h2 {
-    font-family: var(--fuente-segundaria);
+    font-family: var(--fuente-secundaria);
     color: var(--color-primario);
 }
 
@@ -24,6 +24,7 @@ h2 {
     background-size: cover;
     background-position: top center;
     position: relative;
+    border-radius: 12px;
 }
 
 .titulo_miniatura {

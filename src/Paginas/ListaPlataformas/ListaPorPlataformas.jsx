@@ -43,8 +43,7 @@ export const ListaPorPlataformas = () => {
             if (plataforma.slug === plataformasId) {
               return (
                 <div className="row" key={plataforma.id}>
-                  <h1 className="text-center titulo">{plataforma.name}</h1>
-
+                  <h1 className="text-center blacklime">{plataforma.name}</h1>
                   <Botonera plataforma={plataforma.platforms} />
                 </div>
               );

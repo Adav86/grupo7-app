@@ -38,20 +38,18 @@ export const DetalleGenero = () => {
         <div className="navegacion">
           <FaChevronLeft onClick={() => navi(-1)} />
         </div>
-        <h1 className="fuente-principal">{nombregenero}</h1>
-      </div>
-
-      <div className="container">
-        <div className="row">
-          {juegos && juegos.length > 0
-            ? juegos.map((juego, key) => (
-              <div className="col-6 col-sm-4 col-lg-3">
-                <Miniatura key={key} objetoJuego={juego} />
-              </div>
-            ))
-            : ""}
+        <h1 className="blacklime fuente-principal">{nombregenero}</h1>
+        <div className="container">
+          <div className="row">
+            {juegos && juegos.length > 0
+              ? juegos.map((juego, key) => (
+                <div className="col-6 col-sm-4 col-lg-3">
+                  <Miniatura key={key} objetoJuego={juego} />
+                </div>
+              ))
+              : ""}
+          </div>
         </div>
-      </div>
-    </>
-  );
+      </>
+      );
 };
