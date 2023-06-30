@@ -16,16 +16,16 @@
 }
 
 .loader {
-  transform: rotateZ(45deg) translate(-50%, -50%);
+  /* transform: rotateZ(45deg) translate(-50%, -50%); */
+  transform:translate(-50%, -50%) rotateZ(45deg);
   perspective: 1000px;
   border-radius: 50%;
   width: 100px;
   height: 100px;
   color: #fff;
   position: absolute;
-  top: 52%;
-  left: 42%;
-
+  top: 50%;
+  left: 49.5%;
 }
 
 .loader:before,
@@ -102,11 +102,4 @@
   87% {
     box-shadow: .2em -.2em 0 0 currentcolor;
   }
-}
-
-@media only screen and (min-width:600px) {
-  .loader {
-    left: 48%;
-  }
-
 }

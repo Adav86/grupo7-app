@@ -109,7 +109,7 @@ export const Botonera = ({ plataforma }) => {
             </div>
             {juegos && juegos.length > 0
               ? juegos.map((juego, key) => (
-                  <div className="col-6 col-sm-4 col-lg-3">
+                  <div className="col-6 col-sm-4 col-lg-3 scale-in-center" style={{ animationDelay: `0.${1 + key}s` }}>
                     <Miniatura key={key} objetoJuego={juego} />
                   </div>
                 ))
