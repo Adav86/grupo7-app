@@ -14,7 +14,14 @@ export const Inicio = () => {
     const [sliders, setSliders] = useState(null);
     const [cargando, setCargando] = useState(true);
 
-  
+    const getFecha = (mesesASumar = 0) => {
+        const hoy = new Date();
+        const mes = hoy.getUTCMonth() + (1 + mesesASumar);
+        const dia = hoy.getUTCDate();
+        const anio = hoy.getUTCFullYear();
+        return `${anio}-${mes.toString().padStart(2,'0')}-${dia}`;
+    }
+
     const getJuegos = async () => {
         const sliderRes = [];
 
@@ -45,17 +52,19 @@ export const Inicio = () => {
         /* Finalmente llenamos la lista de los mas nuevos */
         let data3 = JSON.parse(sessionStorage.getItem('masNuevos'));
         if (!data3) {
-            data3 = await juegosApi('games', { page_size: 8, ordering: '-created' });
+            const fechaInicio = getFecha();
+            const fechaFin = getFecha(5)
+            data3 = await juegosApi('games', { page_size: 8, ordering: '-released', dates: `${fechaInicio},${fechaFin}` });
             sessionStorage.setItem('masNuevos', JSON.stringify(data3));
         }
-        setNuevos(data3);
+        setNuevos(data3.reverse());
         sliderRes.push({ ...getDataAleatoria(data3), action: 'Más Nuevo' });
         setSliders(sliderRes);
         setCargando(sliders && masBuscados.length > 0 && valorados.length > 0 && nuevos.length > 0);
     }
 
     useEffect(() => {
-        
+
         if (masBuscados && masBuscados.length === 0) {
             getJuegos();
         }

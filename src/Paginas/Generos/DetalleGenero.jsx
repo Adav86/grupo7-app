@@ -20,7 +20,7 @@ export const DetalleGenero = () => {
   }, [cargando]);
 
   const obtenerJuegos = async () => {
-    await juegosApi(`games`, { genre: generoId }).then((games) => {
+    await juegosApi(`games`, { genres: generoId }).then((games) => {
       if (games) {
         setJuegos(games);
         setCargando(false);
