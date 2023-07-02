@@ -1,0 +1,24 @@
+
+#carouselExampleInterval{
+    height: 100vh;
+}
+
+.carousel-inner, .carousel-item{
+height: 100vh !important;
+}
+ 
+.letra{
+    font-family:var(--fuente-secundaria);
+  
+color:lime
+}
+
+.logolink{
+    opacity: 0;
+}
+
+.primero{
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top center;   
+}

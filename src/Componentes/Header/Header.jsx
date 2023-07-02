@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 import { Logo } from '../Logo/Logo';
 import { Navbar } from "../Navbar/Navbar";
-import "./Header.css";
 import { Buscador } from '../Buscador/Buscador';
+import "./Header.css";
 
 export const Header = () => {
   return (
