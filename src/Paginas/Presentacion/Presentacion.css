@@ -1,24 +1,25 @@
-
-#carouselExampleInterval{
+#carouselPresentacion {
     height: 100vh;
 }
 
-.carousel-inner, .carousel-item{
-height: 100vh !important;
-}
- 
-.letra{
-    font-family:var(--fuente-secundaria);
-  
-color:lime
+#carouselPresentacion .carousel-inner, 
+#carouselPresentacion .carousel-item {
+    max-height: 100vh !important;
+    height: 100vh !important;
 }
 
-.logolink{
+.letra {
+    font-family: var(--fuente-secundaria);
+
+    color: lime
+}
+
+.logolink {
     opacity: 0;
 }
 
-.primero{
+.primero {
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: top center;   
+    background-position: top center;
 }

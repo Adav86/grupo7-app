@@ -5,7 +5,7 @@ export const Presentacion = () => {
     <>
       <div className="contenedor-carga">
         <div
-          id="carouselExampleInterval"
+          id="carouselPresentacion"
           class="carousel slide container"
           data-bs-ride="carousel"
         >
@@ -52,7 +52,7 @@ export const Presentacion = () => {
           <button
             class="carousel-control-prev"
             type="button"
-            data-bs-target="#carouselExampleInterval"
+            data-bs-target="#carouselPresentacion"
             data-bs-slide="prev"
           >
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -61,7 +61,7 @@ export const Presentacion = () => {
           <button
             class="carousel-control-next"
             type="button"
-            data-bs-target="#carouselExampleInterval"
+            data-bs-target="#carouselPresentacion"
             data-bs-slide="next"
           >
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
