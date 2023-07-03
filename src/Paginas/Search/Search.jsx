@@ -8,6 +8,7 @@ import "./Search.css";
 
 export const Search = () => {
 
+  const navegate = useNavigate();
   const useQuery = () => {
     return new URLSearchParams(useLocation().search)
   }
@@ -42,9 +43,20 @@ export const Search = () => {
       if (games) {
         setJuegos(games);
         setCargando(false);
+        obtenerDataParaFiltro(games);
       }
     });
   };
+
+  const obtenerDataParaFiltro = (games)=>{
+    const fechas = [];
+    games.map(game=>{
+      const anio = game.released.split("-")[0];
+      fechas.push({fecha:anio, id:game.id}); 
+    }) 
+    sessionStorage.setItem('filtro-fechas', JSON.stringify(fechas));
+    navegate(`?filtros=true`)
+  }
 
   if (cargando) {
     return <LogoCarga />;
