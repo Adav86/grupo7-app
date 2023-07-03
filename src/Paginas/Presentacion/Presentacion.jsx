@@ -48,25 +48,66 @@ export const Presentacion = () => {
                 Fuente secundaria Roboto
               </p>
             </div>
+            <div class="carousel-item">
+              <h2>Recursos</h2>
+              <h2>Api’s</h2>
+              <p>
+                Juegos - https://api.rawg.io/docs/ Traductor -
+                https://translate.googleapis.com/translate_a/single
+              </p>
+              <h2>Lenguajes</h2>
+              <div className="row">
+                <div className="col">
+                  <img
+                    src={process.env.PUBLIC_URL + "/img/html-5_5968267.png"}
+                    alt="..." width="75"
+                  ></img>
+                </div>
+                <div className="col">
+                  <img
+                    src={process.env.PUBLIC_URL + "/img/css-3_5968242.png"}
+                    alt="..." width="75"
+                  ></img>
+                </div>
+                <div className="col">
+                  <img
+                    src={process.env.PUBLIC_URL + "/img/js_5968292.png"}
+                    alt="..." width="75"
+                  ></img>
+                </div>
+                <div className="col">
+                  <img
+                    src={process.env.PUBLIC_URL + "/img/react_1183672.png"}
+                    alt="..." width="75"
+                  ></img>
+                </div>
+              </div>
+            </div>
+            <button
+              class="carousel-control-prev"
+              type="button"
+              data-bs-target="#carouselPresentacion"
+              data-bs-slide="prev"
+            >
+              <span
+                class="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button
+              class="carousel-control-next"
+              type="button"
+              data-bs-target="#carouselPresentacion"
+              data-bs-slide="next"
+            >
+              <span
+                class="carousel-control-next-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Next</span>
+            </button>
           </div>
-          <button
-            class="carousel-control-prev"
-            type="button"
-            data-bs-target="#carouselPresentacion"
-            data-bs-slide="prev"
-          >
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button
-            class="carousel-control-next"
-            type="button"
-            data-bs-target="#carouselPresentacion"
-            data-bs-slide="next"
-          >
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
         </div>
       </div>
     </>
