@@ -1,25 +1,109 @@
+@import url("https://fonts.googleapis.com/css2?family=Expletus+Sans:wght@400;500;700&display=swap");
+
 #carouselPresentacion {
-    height: 100vh;
+  height: 100vh;
 }
 
-#carouselPresentacion .carousel-inner, 
+#carouselPresentacion .carousel-inner,
 #carouselPresentacion .carousel-item {
-    max-height: 100vh !important;
-    height: 100vh !important;
+  max-height: 100vh !important;
+  height: 100vh !important;
+  background: whitesmoke;
 }
 
-.letra {
-    font-family: var(--fuente-secundaria);
+.container {
+  max-width: 100% !important;
+}
 
-    color: lime
+.contenido-slider {
+  padding: 0 10% !important;
 }
 
 .logolink {
-    opacity: 0;
+  opacity: 0;
 }
 
 .primero {
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: top center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top center;
+}
+
+.letra {
+  font-family: "Expletus Sans", cursive;
+  font-weight: 700;
+  font-size: 50px;
+  background: linear-gradient(#0b72a5, #ce283c);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+p {
+  color: var(--color-cuarto);
+  font-weight: 700;
+}
+
+.tipografia p {
+  font-family: var(--fuente-principal);
+}
+
+.tipografia span {
+  font-family: var(--fuente-secundaria);
+  margin-left: 3rem;
+}
+
+.lista-presentacion {
+  color: var(--color-cuarto);
+  font-weight: 700;
+
+  & li {
+    list-style: none;
+  }
+
+  & li::before {
+    /* Unicode para viñeta */
+    content: "\2022";
+    font-size: x-large;
+
+    /* identacion y color */
+    color: #ce283c;
+    display: inline-block;
+    width: 0.75em;
+    margin-left: -1em;
+  }
+}
+
+.color-verde {
+  border-radius: 100%;
+  background-color: var(--color-primario);
+  width: 6rem;
+  height: 6rem;
+}
+
+.color-violeta {
+  border-radius: 100%;
+  background-color: var(--color-secundario);
+  width: 6rem;
+  height: 6rem;
+}
+
+.color-gris {
+  border-radius: 100%;
+  background-color: var(--color-terciario);
+  border: 1px black solid;
+  width: 6rem;
+  height: 6rem;
+}
+
+.color-oscuro {
+  border-radius: 100%;
+  background-color: var(--color-cuarto);
+  width: 6rem;
+  height: 6rem;
+  margin: 0;
+}
+
+.icon-target {
+  margin-right: 20px;
 }
