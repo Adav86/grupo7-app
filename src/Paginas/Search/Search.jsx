@@ -9,8 +9,9 @@ import "./Search.css";
 export const Search = () => {
 
   const navegate = useNavigate();
+  const location = useLocation();
   const useQuery = () => {
-    return new URLSearchParams(useLocation().search)
+    return new URLSearchParams(location.search)
   }
 
   const query = useQuery();
@@ -19,6 +20,7 @@ export const Search = () => {
   const [juegos, setJuegos] = useState(null);
   const [cargando, setCargando] = useState(true);
   const [buscado, setBuscado] = useState("");
+  const [todos, setTodos] = useState(null);
 
   const navi = useNavigate();
   const { searchText } = useParams();
@@ -42,6 +44,7 @@ export const Search = () => {
     await juegosApi(`games`, { search: searchText }).then((games) => {
       if (games) {
         setJuegos(games);
+        setTodos(games);
         setCargando(false);
         obtenerDataParaFiltro(games);
       }
@@ -58,9 +61,42 @@ export const Search = () => {
     navegate(`?filtros=true`)
   }
 
+  const filtroPorFecha = () => {
+    if (location.search.includes("fecha") > 0) {
+      const filtros = location.search.split("&");
+      let filtro = "";
+      let year = "";
+      for (let i = 0; i < filtros.length; i++) {
+        filtro = filtros[i].split("=")[0];
+        if (filtro.indexOf("fecha") === 0) {
+          year = filtros[i].split("=")[1];
+        }
+      }
+      if (year){
+        const filtradosPorFecha = [];
+        todos.map(juego=>{
+          const anioJuego = juego.released.split("-")[0];
+          console.log("anioJuego", anioJuego);
+          console.log("year", year);
+          if(Number(anioJuego) <= Number(year)){
+            filtradosPorFecha.push(juego)
+          }
+        })
+        setJuegos(filtradosPorFecha);
+      }
+    }
+  };
+
+
+  useEffect(() => {
+    /* setJuegos(todos); */
+    filtroPorFecha();
+  }, [location]);
+
   if (cargando) {
     return <LogoCarga />;
   }
+
 
   return (
     <>
@@ -72,7 +108,7 @@ export const Search = () => {
       </div>
       <div className="container">
         <div className="row">
-          {juegos && juegos.length > 0
+          {(juegos && juegos.length > 0)
             ? juegos.map((juego, key) => (
               <div className="col-6 col-sm-4 col-lg-3 scale-in-center" style={{ animationDelay: `0.${1 + key}s` }}>
                 <Miniatura key={key} objetoJuego={juego} />
