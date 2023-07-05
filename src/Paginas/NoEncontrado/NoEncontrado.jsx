@@ -15,7 +15,7 @@ export const NoEncontrado = () => {
       />
       <div className="fuente-secundaria align-self-center">
         <p className="texto-no-encontrado">
-          ¡Aquí nada puede malir sal! Pero a veces, perdemos el control...
+          ¡Aquí en CQV nada puede malir sal! Pero, a veces, perdemos el control...
         </p>
         <p className="texto-no-encontrado">
           ¡No te preocupés! Podés dar un paso atrás y reintentar.
