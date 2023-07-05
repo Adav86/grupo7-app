@@ -50,7 +50,7 @@ p {
 
 .tipografia span {
   font-family: var(--fuente-secundaria);
-  margin-left: 3rem;
+  margin-left: 5rem;
 }
 
 .lista-presentacion {
@@ -75,6 +75,8 @@ p {
 }
 
 .color-verde {
+  color:black;
+  font-family: var(--fuente-secundaria);
   border-radius: 100%;
   background-color: var(--color-primario);
   width: 6rem;
@@ -83,6 +85,7 @@ p {
 }
 
 .color-violeta {
+  color:white;
   border-radius: 100%;
   background-color: var(--color-secundario);
   width: 6rem;
@@ -91,6 +94,8 @@ p {
 }
 
 .color-gris {
+  color:black;
+  font-family: var(--fuente-secundaria);
   border-radius: 100%;
   background-color: var(--color-terciario);
   border: 1px black solid;
@@ -100,6 +105,7 @@ p {
 }
 
 .color-oscuro {
+  color:white;
   border-radius: 100%;
   background-color: var(--color-cuarto);
   width: 6rem;
@@ -107,7 +113,12 @@ p {
   margin: 0;
   line-height: 6rem;
 }
+.paleta{
+  color:var(--color-cuarto);
+  font-family: var(--fuente-primaria)
+}
 
 .icon-target {
   margin-right: 20px;
 }
+

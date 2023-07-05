@@ -1,4 +1,5 @@
 import { BsPeople } from "react-icons/bs";
+import { Link } from "react-router-dom";
 import "./Presentacion.css";
 
 export const Presentacion = () => {
@@ -75,7 +76,7 @@ export const Presentacion = () => {
                   <h3 className="letra">Nuestra paleta cromática</h3>
                   <div className="d-flex justify-content-evenly align-items-center">
                     <div className="primario d-flex flex-column justify-content-center">
-                      <p className="texto-p text-center">Primaria</p>
+                      <h2 className="paleta texto-p text-center">Primaria</h2>
                       <div className="flex-row d-flex align-items-center justify-content-around px-2">
                         <div className="color-verde mx-2 text-center">
                           #00ff00
@@ -86,7 +87,7 @@ export const Presentacion = () => {
                       </div>
                     </div>
                     <div className="secundario d-flex flex-column justify-content-center">
-                      <p className="texto-p text-center">Secundaria</p>
+                      <h2 className="paleta texto-p text-center">Secundaria</h2>
                       <div className="flex-row d-flex align-items-center justify-content-around px-2">
                         <div className="color-gris mx-2 text-center">
                           #e6e6e6
@@ -175,44 +176,71 @@ export const Presentacion = () => {
                 </div>
               </div>
             </div>
-
             <div className="carousel-item" data-bs-interval="200000">
-              <div className="container contenido-slider">
-                <h3 className="letra">Bocetos</h3>
-                <img
-                  src={process.env.PUBLIC_URL + "/img/mpv.png"}
-                  alt="..."
-                  width="7px"
-                ></img>
-              </div>
-            </div>
-            <div className="carousel-item " data-bs-interval="200000">
-              <h3 className="letra">Proyecto Final</h3>
-              <div className="row ">
-                <div className="col">
-                  <img
-                    src={process.env.PUBLIC_URL + "/img/boceto 0.png"}
-                    alt="..."
-                    width="75"
-                  ></img>
-                </div>
-              </div>
-            </div>
-            <div className="carousel-item" data-bs-interval="200000">
-              <h3 className="letra">Bocetos</h3>
+              <h3 className="letra text-center">Bocetos</h3>
+              <div className="d-flex flex-row justify-content-around my-4">
               <img
                 src={process.env.PUBLIC_URL + "/img/mpv.png"}
                 alt="..."
-                width="7px"
+                width="600px"
               ></img>
+              </div>
             </div>
             <div className="carousel-item " data-bs-interval="200000">
-              <h3>Producido y desarrollado por</h3>
+              <h3 className="letra text-center">Diseños</h3>
+              
+              <div className="row ">
+                <div className="col">
+                  <div className= "vertical" height="100">
+                  <img
+                    src={process.env.PUBLIC_URL + "/img/paleta.png"}
+                    class="align-top d-flex"
+                    alt="..."
+                    width="200"
+                  ></img>
+                  <img
+                    src={process.env.PUBLIC_URL + "/img/prueba index.png"}
+                    class="align-middle d-flex"
+                    alt="..."
+                    width="150"
+                    
+                  ></img>
+                  <img
+                    src={process.env.PUBLIC_URL + "/img/otra.png"}
+                    class="align-bottom"
+                    alt="..."
+                    width="200"
+                  ></img>
+                  </div>
+                  <div className="d-flex flex-row justify-content-around my-4">
+                  <img
+                    src={process.env.PUBLIC_URL + "/img/prueba general2.png"}
+                    class="position-absolute bottom-0 start-50 translate-middle-x"
+                    alt="..."
+                    width="700"
+                  ></img>
+                </div>
+              </div>
+              </div>
+            </div>
+            <div className="carousel-item " data-bs-interval="200000">
+              <h3 className="letra text-center">Proyecto Final</h3>
               <img
-                src={process.env.PUBLIC_URL + "/img/nuestro logo.svg"}
+                src={process.env.PUBLIC_URL + "/img/final.png"}
                 alt="..."
                 width="75"
               ></img>
+            </div>
+            <div className="carousel-item">
+              <h3 className="text-center">Producido y desarrollado por</h3>
+              
+              <img className="proyecto-final position-absolute top-50 start-50 translate-middle"
+                src={process.env.PUBLIC_URL + "/img/nuestro logo.svg"}
+                alt="..."
+                width="100"
+              ></img>
+              
+              <p className="text-center">Mónica Alejandra Gallardo   -   Ezequiel Alejandro Bustos   -   Eduardo Castillo   -   Gabriel Pescio   -   Brenda Hipper</p>
             </div>
           </div>
           <button
