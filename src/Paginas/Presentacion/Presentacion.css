@@ -11,8 +11,8 @@
   background: whitesmoke;
 }
 
-.container {
-  max-width: 100% !important;
+.contenedor-carga {
+  max-width: 100%;
 }
 
 .contenido-slider {
@@ -79,6 +79,7 @@ p {
   background-color: var(--color-primario);
   width: 6rem;
   height: 6rem;
+  line-height: 6rem;
 }
 
 .color-violeta {
@@ -86,6 +87,7 @@ p {
   background-color: var(--color-secundario);
   width: 6rem;
   height: 6rem;
+  line-height: 6rem;
 }
 
 .color-gris {
@@ -94,6 +96,7 @@ p {
   border: 1px black solid;
   width: 6rem;
   height: 6rem;
+  line-height: 6rem;
 }
 
 .color-oscuro {
@@ -102,6 +105,7 @@ p {
   width: 6rem;
   height: 6rem;
   margin: 0;
+  line-height: 6rem;
 }
 
 .icon-target {

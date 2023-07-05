@@ -77,17 +77,23 @@ export const Presentacion = () => {
                     <div className="primario d-flex flex-column justify-content-center">
                       <p className="texto-p text-center">Primaria</p>
                       <div className="flex-row d-flex align-items-center justify-content-around px-2">
-                        <div className="color-verde mx-2">#00ff00</div>
-                        <div className="color-violeta mx-2">#161645</div>
+                        <div className="color-verde mx-2 text-center">
+                          #00ff00
+                        </div>
+                        <div className="color-violeta mx-2 text-center">
+                          #161645
+                        </div>
                       </div>
                     </div>
                     <div className="secundario d-flex flex-column justify-content-center">
                       <p className="texto-p text-center">Secundaria</p>
                       <div className="flex-row d-flex align-items-center justify-content-around px-2">
-                        <div className="color-gris mx-2">
-                          <p className="justify-content-center">#e6e6e6</p>
+                        <div className="color-gris mx-2 text-center">
+                          #e6e6e6
                         </div>
-                        <div className="color-oscuro mx-2">#151515</div>
+                        <div className="color-oscuro mx-2 text-center">
+                          #151515
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -105,28 +111,22 @@ export const Presentacion = () => {
                 </p>
                 <div className="">
                   <h3 className="letra">Lenguajes</h3>
-                  <div className="col">
+                  <div className="d-flex flex-row justify-content-around my-4">
                     <img
                       src={process.env.PUBLIC_URL + "/img/html-5_5968267.png"}
                       alt="..."
                       width="75"
                     ></img>
-                  </div>
-                  <div className="col">
                     <img
                       src={process.env.PUBLIC_URL + "/img/css-3_5968242.png"}
                       alt="..."
                       width="75"
                     ></img>
-                  </div>
-                  <div className="col">
                     <img
                       src={process.env.PUBLIC_URL + "/img/js_5968292.png"}
                       alt="..."
                       width="75"
                     ></img>
-                  </div>
-                  <div className="col">
                     <img
                       src={process.env.PUBLIC_URL + "/img/react_1183672.png"}
                       alt="..."
@@ -136,61 +136,69 @@ export const Presentacion = () => {
                 </div>
                 <div className="">
                   <h3 className="letra">Herramientas</h3>
-                  <div className="row">
-                    <div className="col">
-                      <img
-                        src={
-                          process.env.PUBLIC_URL +
-                          "/img/illustrator_5968472.png"
-                        }
-                        alt="..."
-                        width="75"
-                      ></img>
-                    </div>
-                    <div className="col">
-                      <img
-                        src={process.env.PUBLIC_URL + "/img/trello_174874.png"}
-                        alt="..."
-                        width="75"
-                      ></img>
-                    </div>
-                    <div className="col">
-                      <img
-                        src={process.env.PUBLIC_URL + "/img/figma_5968705.png"}
-                        alt="..."
-                        width="75"
-                      ></img>
-                    </div>
-                    <div className="col">
-                      <img
-                        src={process.env.PUBLIC_URL + "/img/vsc.png"}
-                        alt="..."
-                        width="75"
-                      ></img>
-                    </div>
-                    <div className="col">
-                      <img
-                        src={process.env.PUBLIC_URL + "/img/boostrap.png"}
-                        alt="..."
-                        width="75"
-                      ></img>
-                    </div>
-                    <div className="col">
-                      <img
-                        src={
-                          process.env.PUBLIC_URL + "/img/photoshop_5968520.png"
-                        }
-                        alt="..."
-                        width="75"
-                      ></img>
-                    </div>
+                  <div className="d-flex flex-row justify-content-around my-4">
+                    <img
+                      src={
+                        process.env.PUBLIC_URL + "/img/illustrator_5968472.png"
+                      }
+                      alt="..."
+                      width="75"
+                    ></img>
+                    <img
+                      src={process.env.PUBLIC_URL + "/img/trello_174874.png"}
+                      alt="..."
+                      width="75"
+                    ></img>
+                    <img
+                      src={process.env.PUBLIC_URL + "/img/figma_5968705.png"}
+                      alt="..."
+                      width="75"
+                    ></img>
+                    <img
+                      src={process.env.PUBLIC_URL + "/img/vsc.png"}
+                      alt="..."
+                      width="75"
+                    ></img>
+                    <img
+                      src={process.env.PUBLIC_URL + "/img/boostrap.png"}
+                      alt="..."
+                      width="75"
+                    ></img>
+                    <img
+                      src={
+                        process.env.PUBLIC_URL + "/img/photoshop_5968520.png"
+                      }
+                      alt="..."
+                      width="75"
+                    ></img>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div className="carousel-item" data-bs-interval="200000">
-            <div className="container contenido-slider">
+
+            <div className="carousel-item" data-bs-interval="200000">
+              <div className="container contenido-slider">
+                <h3 className="letra">Bocetos</h3>
+                <img
+                  src={process.env.PUBLIC_URL + "/img/mpv.png"}
+                  alt="..."
+                  width="7px"
+                ></img>
+              </div>
+            </div>
+            <div className="carousel-item " data-bs-interval="200000">
+              <h3 className="letra">Proyecto Final</h3>
+              <div className="row ">
+                <div className="col">
+                  <img
+                    src={process.env.PUBLIC_URL + "/img/boceto 0.png"}
+                    alt="..."
+                    width="75"
+                  ></img>
+                </div>
+              </div>
+            </div>
+            <div className="carousel-item" data-bs-interval="200000">
               <h3 className="letra">Bocetos</h3>
               <img
                 src={process.env.PUBLIC_URL + "/img/mpv.png"}
@@ -198,34 +206,14 @@ export const Presentacion = () => {
                 width="7px"
               ></img>
             </div>
-          </div>
-          <div className="carousel-item " data-bs-interval="200000">
-            <h3 className="letra">Proyecto Final</h3>
-            <div className="row ">
-              <div className="col">
-                <img
-                  src={process.env.PUBLIC_URL + "/img/boceto 0.png"}
-                  alt="..."
-                  width="75"
-                ></img>
-              </div>
+            <div className="carousel-item " data-bs-interval="200000">
+              <h3>Producido y desarrollado por</h3>
+              <img
+                src={process.env.PUBLIC_URL + "/img/nuestro logo.svg"}
+                alt="..."
+                width="75"
+              ></img>
             </div>
-          </div>
-          <div className="carousel-item" data-bs-interval="200000">
-            <h3 className="letra">Bocetos</h3>
-            <img
-              src={process.env.PUBLIC_URL + "/img/mpv.png"}
-              alt="..."
-              width="7px"
-            ></img>
-          </div>
-          <div className="carousel-item " data-bs-interval="200000">
-            <h3>Producido y desarrollado por</h3>
-            <img
-              src={process.env.PUBLIC_URL + "/img/nuestro logo.svg"}
-              alt="..."
-              width="75"
-            ></img>
           </div>
           <button
             className="carousel-control-prev"
