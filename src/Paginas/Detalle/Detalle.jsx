@@ -8,6 +8,11 @@ import { obtenerIconoPlataforma } from '../../Utilidades/iconos';
 import { FaChevronLeft } from 'react-icons/fa';
 import { MeGusta } from '../../Componentes/Iconos/MeGusta/MeGusta';
 import { Favorito } from '../../Componentes/Iconos/Favorito/Favorito';
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "../../firebase/config";
+import { db } from "../../firebase/config";
+import { collection, addDoc, getDocs, deleteDoc, doc } from "firebase/firestore"
+import { MEGUSTA, borrarPreferencia, guardarPreferencia, obtenerIdDocDelLocalStorage } from '../../Utilidades/administrador-preferencias';
 
 export const DetalleJuego = () => {
 
@@ -15,6 +20,11 @@ export const DetalleJuego = () => {
     const [cargando, setCargando] = useState(null);
     const [megusta, setMegusta] = useState(false);
     const [favorito, setFavorito] = useState(false);
+    const [authUser, setAuthUser] = useState(null);
+
+    const meGustaCollection = collection(db, "megusta");
+    const favoritoCollection = collection(db, "favorito");
+    const lateCollection = collection(db, "late");
 
     const navigate = useNavigate();
     const { juegoId } = useParams();
@@ -31,6 +41,13 @@ export const DetalleJuego = () => {
                 const descripcion = await traductorApi(description_raw);
                 setJuego({ ...res, descripcion });
                 setCargando(juego && juego.length > 0);
+                if (localStorage.getItem('megusta') !== null) {
+                    JSON.parse(localStorage.getItem('megusta')).map(megusta => {
+                        if (megusta.idJuego === res.id) {
+                            setMegusta(megusta.idJuego === res.id);
+                        }
+                    })
+                }
             }
         });
     }
@@ -52,14 +69,35 @@ export const DetalleJuego = () => {
     }
 
     const onMeGusta = () => {
-        setMegusta(prevState => !prevState);
-        console.log("me gusta ", megusta);
+        debugger
+        if (authUser) {
+            const estadoAnterior = megusta;
+            setMegusta(!estadoAnterior);
+            if (juego && !estadoAnterior) {
+                guardarPreferencia(MEGUSTA, juego.id, authUser.email)
+            } else {
+                const juegoGuardado = obtenerIdDocDelLocalStorage(MEGUSTA, juego.id);
+                if (juegoGuardado) {
+                    borrarPreferencia(MEGUSTA, juegoGuardado[0].id)
+                }
+            }
+            return true;
+        } else {
+            alert('Debes loguearte para guardar tus megusta');
+            return false;
+        }
     }
 
     useEffect(() => {
         if (cargando === null) {
             getJuego();
         }
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                setAuthUser(user);
+            }
+        })
+
     }, [cargando])
 
     if (juego && Object.keys(juego).length > 0) {
@@ -70,12 +108,12 @@ export const DetalleJuego = () => {
                         <FaChevronLeft onClick={() => navigate(-1)} />
                     </div>
                     <div className="interaccion">
-                        <MeGusta onClick={() => onMeGusta()} />
+                        <MeGusta clickAction={onMeGusta} seleccionado={megusta} />
                         <Favorito onClick={() => onFavorito()} />
                     </div>
                 </div>
                 <div className='description'>
-                    <img alt={"Imagen del juego "+juego.name} src={juego.background_image  ?  juego.background_image : `${process.env.PUBLIC_URL}/img/bati-profe.jpg` } />
+                    <img alt={"Imagen del juego " + juego.name} src={juego.background_image ? juego.background_image : `${process.env.PUBLIC_URL}/img/bati-profe.jpg`} />
                     <div className="iconos-plataformas">
                         {obtenerPlataformas(juego.platforms)}
                     </div>

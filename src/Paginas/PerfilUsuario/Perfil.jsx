@@ -5,7 +5,7 @@ import "./Perfil.css";
 
 export const Perfil = () => {
   return (
-    <div className="login template d-flex justify-content-center align-items-center vh-100">
+    <div className="perfil template d-flex justify-content-center align-items-center vh-100">
       <form>
         <section class="game-menu-frame">
           <header class="game-header">
