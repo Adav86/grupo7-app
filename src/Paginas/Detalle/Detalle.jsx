@@ -78,7 +78,6 @@ export const DetalleJuego = () => {
     const onFavorito = () => {
         if (authUser) {
             const estadoAnterior = favorito;
-            setFavorito(!estadoAnterior);
             if (juego && !estadoAnterior) {
                 guardarPreferencia(FAVORITO, {
                     id: juego.id,
@@ -91,6 +90,7 @@ export const DetalleJuego = () => {
                     borrarPreferencia(FAVORITO, juegoGuardado.id)
                 }
             }
+            setFavorito(!estadoAnterior);
             return true;
         } else {
             setShow(true);
@@ -101,7 +101,6 @@ export const DetalleJuego = () => {
     const onMeGusta = () => {
         if (authUser) {
             const estadoAnterior = megusta;
-            setMegusta(!estadoAnterior);
             if (juego && !estadoAnterior) {
                 guardarPreferencia(MEGUSTA, {
                     id: juego.id,
@@ -114,6 +113,7 @@ export const DetalleJuego = () => {
                     borrarPreferencia(MEGUSTA, juegoGuardado.id)
                 }
             }
+            setMegusta(!estadoAnterior);
             return true;
         } else {
             setShow(true);
@@ -124,7 +124,6 @@ export const DetalleJuego = () => {
     const onLate = () => {
         if (authUser) {
             const estadoAnterior = late;
-            setLate(!estadoAnterior);
             if (juego && !estadoAnterior) {
                 guardarPreferencia(LATE, {
                     id: juego.id,
@@ -137,6 +136,7 @@ export const DetalleJuego = () => {
                     borrarPreferencia(LATE, juegoGuardado.id)
                 }
             }
+            setLate(!estadoAnterior);
             return true;
         } else {
             setShow(true);

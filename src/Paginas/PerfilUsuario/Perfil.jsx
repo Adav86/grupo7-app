@@ -2,8 +2,24 @@ import imgUser from "./profile.png";
 import "./Perfil.css";
 import { Link } from "react-router-dom";
 import { FAVORITO, LATE, MEGUSTA } from "../../Utilidades/administrador-preferencias";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "../../firebase/config";
+import { useEffect, useState } from "react";
 
 export const Perfil = () => {
+
+  const [authUser, setAuthUser] = useState(null);
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        console.log(user);
+        setAuthUser(user.email);
+      }
+    })
+
+  }, [])
+
   return (
     <div className="perfil template d-flex justify-content-center align-items-center vh-100">
       <form>
@@ -13,7 +29,8 @@ export const Perfil = () => {
               <img src={imgUser} alt="user" className="user" />
               <div className="line-1">Bienvenido</div>
             </h1>
-            <h2></h2>
+            <h2 className="text-center">{authUser}</h2>
+
           </header>
           <nav className="game-nav">
             <ul className="game-nav-list">
@@ -35,7 +52,7 @@ export const Perfil = () => {
                   &#128077; Mis me gusta
                 </Link>
               </li>
-{/*               <li className="game-nav-item">
+              {/*               <li className="game-nav-item">
                 {" "}
                 <a className="game-nav-button" href="https://www.youtube.com/">
                   &#128736; Configuración

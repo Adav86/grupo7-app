@@ -11,14 +11,13 @@
 .game-header {
   position: relative;
   perspective: 800px;
+  margin-bottom: 40px;
 }
 
 .game-title {
   position: relative;
   z-index: 10;
-  /* margin-top: -135px; */
   transform: rotateX(21deg);
-  margin-bottom: 40px;
   color: #fff;
   font-size: 54rem;
   font-weight: 800;
