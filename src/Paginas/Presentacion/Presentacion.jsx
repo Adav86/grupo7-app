@@ -239,7 +239,7 @@ export const Presentacion = () => {
                         src={
                           process.env.PUBLIC_URL + "/img/prueba general2.png"
                         }
-                        className="img-fluid "
+                        className="img-fluid"
                         alt="..."
                       ></img>
                     </div>
@@ -250,10 +250,11 @@ export const Presentacion = () => {
             <div className="carousel-item " data-bs-interval="4000">
               <div className="container contenido-slider">
                 <h3 className="letra text-center">Proyecto Final</h3>
-                <div className="d-flex justify-content-center">
+                <div className="d-flex justify-content-center align-self-center">
                   <img
                     src={process.env.PUBLIC_URL + "/img/final.png"}
                     alt="..."
+                    className="img-fluid"
                     width="1000"
                   ></img>
                 </div>
