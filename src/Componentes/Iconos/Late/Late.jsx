@@ -1,14 +1,14 @@
 import { useState } from 'react';
 import "../iconos-dinamicos.css";
-import "./Favorito.css";
+import "./Late.css";
 
-import { FaStar } from 'react-icons/fa';
+import { RiVipDiamondFill } from 'react-icons/ri';
 
-export const Favorito = ({ clickAction, seleccionado }) => {
+export const Late = ({ clickAction, seleccionado }) => {
     const [clickeado, setClickeado] = useState(seleccionado || false);
     const [clickeable, setClickeable] = useState(true);
 
-    const favoritoAction = () => {
+    const lateAction = () => {
         const seGuardo = clickAction();
         if (seGuardo) {
             if (clickeado) {
@@ -25,11 +25,11 @@ export const Favorito = ({ clickAction, seleccionado }) => {
 
     return (
         <div
-            className={clickeado ? 'icono-wrapper favorito anim' : 'icono-wrapper favorito'}
+            className={clickeado ? 'icono-wrapper late anim' : 'icono-wrapper late'}
             style={{ pointerEvents: clickeable ? '' : 'none' }}
         >
-            <span className="icono" onClick={() => favoritoAction()}>
-                <FaStar />
+            <span className="icono" onClick={() => lateAction()}>
+                <RiVipDiamondFill />
             </span>
             <div className="borde"><span></span></div>
             <div className="spark">

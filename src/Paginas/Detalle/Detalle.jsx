@@ -8,11 +8,10 @@ import { obtenerIconoPlataforma } from '../../Utilidades/iconos';
 import { FaChevronLeft } from 'react-icons/fa';
 import { MeGusta } from '../../Componentes/Iconos/MeGusta/MeGusta';
 import { Favorito } from '../../Componentes/Iconos/Favorito/Favorito';
+import { Late } from '../../Componentes/Iconos/Late/Late';
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../../firebase/config";
-import { db } from "../../firebase/config";
-import { collection, addDoc, getDocs, deleteDoc, doc } from "firebase/firestore"
-import { MEGUSTA, borrarPreferencia, guardarPreferencia, obtenerIdDocDelLocalStorage } from '../../Utilidades/administrador-preferencias';
+import { LATE, FAVORITO, MEGUSTA, borrarPreferencia, guardarPreferencia, obtenerIdDocDelLocalStorage } from '../../Utilidades/administrador-preferencias';
 
 export const DetalleJuego = () => {
 
@@ -20,11 +19,8 @@ export const DetalleJuego = () => {
     const [cargando, setCargando] = useState(null);
     const [megusta, setMegusta] = useState(false);
     const [favorito, setFavorito] = useState(false);
+    const [late, setLate] = useState(false);
     const [authUser, setAuthUser] = useState(null);
-
-    const meGustaCollection = collection(db, "megusta");
-    const favoritoCollection = collection(db, "favorito");
-    const lateCollection = collection(db, "late");
 
     const navigate = useNavigate();
     const { juegoId } = useParams();
@@ -41,15 +37,29 @@ export const DetalleJuego = () => {
                 const descripcion = await traductorApi(description_raw);
                 setJuego({ ...res, descripcion });
                 setCargando(juego && juego.length > 0);
-                if (localStorage.getItem('megusta') !== null) {
-                    JSON.parse(localStorage.getItem('megusta')).map(megusta => {
-                        if (megusta.idJuego === res.id) {
-                            setMegusta(megusta.idJuego === res.id);
-                        }
-                    })
-                }
+                actualizarReaciones(res);
             }
         });
+    }
+
+    const actualizarReaciones = (res) => {
+        [MEGUSTA, FAVORITO, LATE].map(reaccion => {
+            if (localStorage.getItem(reaccion) !== null) {
+                JSON.parse(localStorage.getItem(reaccion)).map(reac => {
+                    if (reac.juego && reac.juego.id === res.id) {
+                        if (reaccion === "megusta") {
+                            setMegusta(reac.juego.id === res.id);
+                        }
+                        if (reaccion === "favorito") {
+                            setFavorito(reac.juego.id === res.id);
+                        }
+                        if (reaccion === "late") {
+                            setLate(reac.juego.id === res.id);
+                        }
+                    }
+                })
+            }
+        })
     }
 
     const obtenerPlataformas = (plataformas) => {
@@ -64,26 +74,70 @@ export const DetalleJuego = () => {
     }
 
     const onFavorito = () => {
-        setFavorito(prevFavorito => !prevFavorito);
-        console.log("favorito ", favorito);
-    }
-
-    const onMeGusta = () => {
-        debugger
         if (authUser) {
-            const estadoAnterior = megusta;
-            setMegusta(!estadoAnterior);
+            const estadoAnterior = favorito;
+            setFavorito(!estadoAnterior);
             if (juego && !estadoAnterior) {
-                guardarPreferencia(MEGUSTA, juego.id, authUser.email)
+                guardarPreferencia(FAVORITO, {
+                    id: juego.id,
+                    name: juego.name,
+                    background_image: juego.background_image
+                }, authUser.email)
             } else {
-                const juegoGuardado = obtenerIdDocDelLocalStorage(MEGUSTA, juego.id);
+                const juegoGuardado = obtenerIdDocDelLocalStorage(FAVORITO, juego.id);
                 if (juegoGuardado) {
-                    borrarPreferencia(MEGUSTA, juegoGuardado[0].id)
+                    borrarPreferencia(FAVORITO, juegoGuardado.id)
                 }
             }
             return true;
         } else {
-            alert('Debes loguearte para guardar tus megusta');
+            alert('Debes loguearte para guardar tus favoritos');
+            return false;
+        }
+    }
+
+    const onMeGusta = () => {
+        if (authUser) {
+            const estadoAnterior = megusta;
+            setMegusta(!estadoAnterior);
+            if (juego && !estadoAnterior) {
+                guardarPreferencia(MEGUSTA, {
+                    id: juego.id,
+                    name: juego.name,
+                    background_image: juego.background_image
+                }, authUser.email)
+            } else {
+                const juegoGuardado = obtenerIdDocDelLocalStorage(MEGUSTA, juego.id);
+                if (juegoGuardado) {
+                    borrarPreferencia(MEGUSTA, juegoGuardado.id)
+                }
+            }
+            return true;
+        } else {
+            alert('Debes loguearte para guardar tus me gusta');
+            return false;
+        }
+    }
+
+    const onLate = () => {
+        if (authUser) {
+            const estadoAnterior = late;
+            setLate(!estadoAnterior);
+            if (juego && !estadoAnterior) {
+                guardarPreferencia(LATE, {
+                    id: juego.id,
+                    name: juego.name,
+                    background_image: juego.background_image
+                }, authUser.email)
+            } else {
+                const juegoGuardado = obtenerIdDocDelLocalStorage(LATE, juego.id);
+                if (juegoGuardado) {
+                    borrarPreferencia(LATE, juegoGuardado.id)
+                }
+            }
+            return true;
+        } else {
+            alert('Debes loguearte para guardar tus me gusta');
             return false;
         }
     }
@@ -109,7 +163,8 @@ export const DetalleJuego = () => {
                     </div>
                     <div className="interaccion">
                         <MeGusta clickAction={onMeGusta} seleccionado={megusta} />
-                        <Favorito onClick={() => onFavorito()} />
+                        <Favorito clickAction={onFavorito} seleccionado={favorito} />
+                        <Late clickAction={onLate} seleccionado={late} />
                     </div>
                 </div>
                 <div className='description'>

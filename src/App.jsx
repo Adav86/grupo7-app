@@ -14,6 +14,7 @@ import { Search } from "./Paginas/Search/Search";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.min.js";
 import { Presentacion } from "./Paginas/Presentacion/Presentacion";
+import { Guardados } from "./Paginas/Guardados/Guardados";
 
 
 
@@ -33,6 +34,7 @@ function App() {
         <Route path="/search/:searchText" element={<Search/>}></Route>
         <Route path="/plataformas/:plataformasId" element={<ListaPorPlataformas/>}></Route>
         <Route path="/presentaciong7" element={<Presentacion/>}></Route>
+        <Route path="/guardados/:collection" element={<Guardados/>}></Route>
 
       </Routes>
     </BrowserRouter>

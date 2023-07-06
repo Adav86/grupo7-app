@@ -2,44 +2,46 @@
 // import { Signup } from "./Paginas/Signup/Signup";
 import imgUser from "./profile.png";
 import "./Perfil.css";
+import { Link } from "react-router-dom";
+import { FAVORITO, LATE, MEGUSTA } from "../../Utilidades/administrador-preferencias";
 
 export const Perfil = () => {
   return (
     <div className="perfil template d-flex justify-content-center align-items-center vh-100">
       <form>
-        <section class="game-menu-frame">
-          <header class="game-header">
-            <h1 class="game-title">
+        <section className="game-menu-frame">
+          <header className="game-header">
+            <h1 className="game-title">
               <img src={imgUser} alt="user" className="user" />
-              <div class="line-1">Bienvenido</div>
+              <div className="line-1">Bienvenido</div>
             </h1>
           </header>
-          <nav class="game-nav">
-            <ul class="game-nav-list">
-              <li class="game-nav-item">
+          <nav className="game-nav">
+            <ul className="game-nav-list">
+              <li className="game-nav-item">
                 {" "}
-                <a class="game-nav-button" href="https://www.youtube.com/">
-                  💎 Deseados
-                </a>
+                <Link className="game-nav-button" to={`/guardados/${LATE}`}>
+                  💎 Late
+                </Link>
               </li>
-              <li class="game-nav-item">
+              <li className="game-nav-item">
                 {" "}
-                <a class="game-nav-button" href="https://www.youtube.com/">
-                  &#11088; Favoritos
-                </a>
+                <Link className="game-nav-button" to={`/guardados/${FAVORITO}`}>
+                  &#11088; Mis favoritos
+                </Link>
               </li>
-              <li class="game-nav-item">
+              <li className="game-nav-item">
                 {" "}
-                <a class="game-nav-button" href="https://www.youtube.com/">
-                  &#128077; Poseidos
-                </a>
+                <Link className="game-nav-button" to={`/guardados/${MEGUSTA}`}>
+                  &#128077; Mis me gusta
+                </Link>
               </li>
-              <li class="game-nav-item">
+{/*               <li className="game-nav-item">
                 {" "}
-                <a class="game-nav-button" href="https://www.youtube.com/">
+                <a className="game-nav-button" href="https://www.youtube.com/">
                   &#128736; Configuración
                 </a>
-              </li>
+              </li> */}
             </ul>
           </nav>
         </section>
