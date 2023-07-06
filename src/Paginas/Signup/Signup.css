@@ -70,10 +70,9 @@
   cursor: pointer;
 }
 
-.btn-primary {
-  background:#161645!important;
-  border:lime!important;
-  border-radius: 50px;
+.boton-registro {
+  border:1px solid lime !important;
+  background: #161645 !important;
 }
 
 small {

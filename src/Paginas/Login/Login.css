@@ -67,12 +67,6 @@
   cursor: pointer;
 }
 
-.btn-primary {
-  background: #161645 !important;
-  border: none;
-  border-radius: 50px;
-}
-
 small {
   color:#161645 ;
 }

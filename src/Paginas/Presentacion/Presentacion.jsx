@@ -26,7 +26,7 @@ export const Presentacion = () => {
               <div className="container contenido-slider">
                 <img
                   src={process.env.PUBLIC_URL + "/img/logo.svg"}
-                  className="d-block w-100"
+                  className="d-block w-75 mx-auto"
                   alt="..."
                 ></img>
               </div>
