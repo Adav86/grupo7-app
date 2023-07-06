@@ -26,7 +26,7 @@ export const Perfil = () => {
         <section className="game-menu-frame">
           <header className="game-header">
             <h1 className="game-title">
-              <img src={imgUser} alt="user" className="user" />
+              <img src={process.env.PUBLIC_URL + '/img/perfil.svg'} alt="user" className="user" />
               <div className="line-1">Bienvenido</div>
             </h1>
             <h2 className="text-center">{authUser}</h2>
