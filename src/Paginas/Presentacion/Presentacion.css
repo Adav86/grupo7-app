@@ -8,7 +8,14 @@
 #carouselPresentacion .carousel-item {
   max-height: 100vh !important;
   height: 100vh !important;
-  background-image:url(/public/img/istockphoto-1367980878-612x612.jpg);
+  background-image:url(/public/img/images.jpg);
+}
+
+.carousel-item::before{
+  display: inline-grid;
+  content: '';
+  width: 100%;
+  height: 95px;
 }
 
 .contenedor-carga {
@@ -87,6 +94,7 @@ p {
 
 .color-violeta {
   color:white;
+  border: 1px white solid;
   border-radius: 100%;
   background-color: var(--color-secundario);
   width: 6rem;
@@ -107,6 +115,7 @@ p {
 
 .color-oscuro {
   color:black;
+  border: 1px white solid;
   border-radius: 100%;
   background-color: var(--color-cuarto);
   width: 6rem;
@@ -123,3 +132,23 @@ p {
   margin-right: 20px;
 }
 
+.titulo-logo{
+  margin-bottom: 3.5rem;
+}
+
+.creditos{
+  margin-top: 1rem;
+  white-space: nowrap;
+  will-change: transform;
+  animation: slidein 10s linear infinite;
+ /* animation-name: slidein;*/
+}
+
+@keyframes slidein{
+  from { transform: translateX(100%); }
+  to { transform: translateX(-100%); } 
+}
+
+.boton-a-inicio{
+  color:#ce283c !important;
+}

@@ -1,8 +1,12 @@
 import { BsPeople } from "react-icons/bs";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./Presentacion.css";
 
 export const Presentacion = () => {
+  const navigate = useNavigate();
+  const volverAInicio = () => {
+    navigate("/");
+  };
   return (
     <>
       <div className="contenedor-carga container">
@@ -17,7 +21,7 @@ export const Presentacion = () => {
               style={{
                 backgroundImage: `url(${process.env.PUBLIC_URL}/img/video-games-collage-Dota-2-Carnival-ART-festival-208769-wallhere.com.jpg)`,
               }}
-              data-bs-interval="1000000"
+              data-bs-interval="300000"
             >
               <img
                 src={process.env.PUBLIC_URL + "/img/logo.svg"}
@@ -103,13 +107,34 @@ export const Presentacion = () => {
             </div>
             <div className="carousel-item" data-bs-interval="200000">
               <div className="container contenido-slider">
-                <h3 className="letra">Recursos</h3>
+                <h3 className="letra text-center">Recursos</h3>
                 <h3 className="letra">Api’s</h3>
-                <p>
-                  Juegos - https://api.rawg.io/docs/
-                  <br></br>Traductor
-                  -https://translate.googleapis.com/translate_a/single
-                </p>
+                <ul>
+                  <li>
+                    <p>
+                      Juegos:{" "}
+                      <a
+                        href="https://api.rawg.io/docs/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        RAWG Video Games Database API
+                      </a>
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      Traductor:{" "}
+                      <a
+                        href="https://translate.googleapis.com/translate_a/single"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Google Translate API
+                      </a>
+                    </p>
+                  </li>
+                </ul>
                 <div className="">
                   <h3 className="letra">Lenguajes</h3>
                   <div className="d-flex flex-row justify-content-around my-4">
@@ -179,68 +204,73 @@ export const Presentacion = () => {
             <div className="carousel-item" data-bs-interval="200000">
               <h3 className="letra text-center">Bocetos</h3>
               <div className="d-flex flex-row justify-content-around my-4">
-              <img
-                src={process.env.PUBLIC_URL + "/img/mpv.png"}
-                alt="..."
-                width="600px"
-              ></img>
+                <img
+                  src={process.env.PUBLIC_URL + "/img/mpv.png"}
+                  alt="..."
+                  width="600px"
+                ></img>
               </div>
             </div>
             <div className="carousel-item " data-bs-interval="200000">
               <h3 className="letra text-center">Diseños</h3>
-              
-              <div className="row ">
-                <div className="col">
-                  <div className= "vertical" height="100">
-                  <img
-                    src={process.env.PUBLIC_URL + "/img/paleta.png"}
-                    class="align-top d-flex"
-                    alt="..."
-                    width="200"
-                  ></img>
-                  <img
-                    src={process.env.PUBLIC_URL + "/img/prueba index.png"}
-                    class="align-middle d-flex"
-                    alt="..."
-                    width="150"
-                    
-                  ></img>
-                  <img
-                    src={process.env.PUBLIC_URL + "/img/otra.png"}
-                    class="align-bottom"
-                    alt="..."
-                    width="200"
-                  ></img>
+              <div className="row justify-content-evenly row-cols-2 align-items-center">
+                <div className="col-3 ps-5 align-self-end">
+                  <div className="" height="100">
+                    <img
+                      src={process.env.PUBLIC_URL + "/img/paleta.png"}
+                      className="img-fluid "
+                      alt="..."
+                    ></img>
+                    <img
+                      src={process.env.PUBLIC_URL + "/img/prueba index.png"}
+                      className="img-fluid "
+                      alt="..."
+                    ></img>
+                    <img
+                      src={process.env.PUBLIC_URL + "/img/otra.png"}
+                      className="img-fluid "
+                      alt="..."
+                    ></img>
                   </div>
-                  <div className="d-flex flex-row justify-content-around my-4">
-                  <img
-                    src={process.env.PUBLIC_URL + "/img/prueba general2.png"}
-                    class="position-absolute bottom-0 start-50 translate-middle-x"
-                    alt="..."
-                    width="700"
-                  ></img>
+                </div>
+                <div className="col-7 pe-4">
+                  <div className="">
+                    <img
+                      src={process.env.PUBLIC_URL + "/img/prueba general2.png"}
+                      className="img-fluid "
+                      alt="..."
+                    ></img>
+                  </div>
                 </div>
               </div>
-              </div>
             </div>
-            <div className="carousel-item " data-bs-interval="200000">
+            <div className="carousel-item " data-bs-interval="300000">
               <h3 className="letra text-center">Proyecto Final</h3>
               <img
                 src={process.env.PUBLIC_URL + "/img/final.png"}
                 alt="..."
-                width="75"
+                width="1000"
               ></img>
             </div>
             <div className="carousel-item">
-              <h3 className="text-center">Producido y desarrollado por</h3>
-              
-              <img className="proyecto-final position-absolute top-50 start-50 translate-middle"
-                src={process.env.PUBLIC_URL + "/img/nuestro logo.svg"}
-                alt="..."
-                width="100"
-              ></img>
-              
-              <p className="text-center">Mónica Alejandra Gallardo   -   Ezequiel Alejandro Bustos   -   Eduardo Castillo   -   Gabriel Pescio   -   Brenda Hipper</p>
+              <h3 className="titulo-logo text-center">
+                Producido y desarrollado por
+              </h3>
+              <div className="d-flex justify-content-center">
+                <img
+                  className="proyecto-final"
+                  src={process.env.PUBLIC_URL + "/img/nuestro logo blanco.svg"}
+                  alt="..."
+                  width="300"
+                ></img>
+              </div>
+              <p className="creditos text-center">
+                Mónica Alejandra Gallardo - Ezequiel Alejandro Bustos - Eduardo
+                Castillo - Gabriel Pescio - Brenda Hipper
+              </p>
+              <div className="d-flex justify-content-center">
+                <button className="boton-a-inicio btn btn-outline-primary" onClick={volverAInicio}>Volver a CQV</button>
+              </div>
             </div>
           </div>
           <button
