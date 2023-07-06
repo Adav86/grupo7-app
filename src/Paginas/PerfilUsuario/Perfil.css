@@ -92,13 +92,13 @@ ul {
 
 @keyframes neon {
   from {
-    box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #0052ff,
-      0 0 35px #0052ff, 0 0 40px #0052ff, 0 0 50px #0052ff, 0 0 75px #0052ff;
+    box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px var(--color-primario),
+      0 0 35px var(--color-primario), 0 0 40px var(--color-primario), 0 0 50px var(--color-primario), 0 0 75px var(--color-primario);
   }
 
   to {
-    box-shadow: 0 0 2px #fff, 0 0 5px #fff, 0 0 7px #fff, 0 0 10px #0052ff,
-      0 0 17px #0052ff, 0 0 20px #0052ff, 0 0 25px #0052ff, 0 0 37px #0052ff;
+    box-shadow: 0 0 2px #fff, 0 0 5px #fff, 0 0 7px #fff, 0 0 10px var(--color-primario),
+      0 0 17px var(--color-primario), 0 0 20px var(--color-primario), 0 0 25px var(--color-primario), 0 0 37px var(--color-primario);
   }
 }
 

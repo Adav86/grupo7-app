@@ -1,5 +1,3 @@
-// import { useState } from "react";
-// import { Signup } from "./Paginas/Signup/Signup";
 import imgUser from "./profile.png";
 import "./Perfil.css";
 import { Link } from "react-router-dom";
@@ -15,13 +13,14 @@ export const Perfil = () => {
               <img src={imgUser} alt="user" className="user" />
               <div className="line-1">Bienvenido</div>
             </h1>
+            <h2></h2>
           </header>
           <nav className="game-nav">
             <ul className="game-nav-list">
               <li className="game-nav-item">
                 {" "}
                 <Link className="game-nav-button" to={`/guardados/${LATE}`}>
-                  💎 Late
+                  💎 Mi biblioteca
                 </Link>
               </li>
               <li className="game-nav-item">

@@ -12,6 +12,7 @@ import { Late } from '../../Componentes/Iconos/Late/Late';
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../../firebase/config";
 import { LATE, FAVORITO, MEGUSTA, borrarPreferencia, guardarPreferencia, obtenerIdDocDelLocalStorage } from '../../Utilidades/administrador-preferencias';
+import { Modal } from '../../Componentes/Modal/Modal';
 
 export const DetalleJuego = () => {
 
@@ -21,6 +22,7 @@ export const DetalleJuego = () => {
     const [favorito, setFavorito] = useState(false);
     const [late, setLate] = useState(false);
     const [authUser, setAuthUser] = useState(null);
+    const [show, setShow] = useState(false);
 
     const navigate = useNavigate();
     const { juegoId } = useParams();
@@ -91,7 +93,7 @@ export const DetalleJuego = () => {
             }
             return true;
         } else {
-            alert('Debes loguearte para guardar tus favoritos');
+            setShow(true);
             return false;
         }
     }
@@ -114,7 +116,7 @@ export const DetalleJuego = () => {
             }
             return true;
         } else {
-            alert('Debes loguearte para guardar tus me gusta');
+            setShow(true);
             return false;
         }
     }
@@ -137,7 +139,7 @@ export const DetalleJuego = () => {
             }
             return true;
         } else {
-            alert('Debes loguearte para guardar tus me gusta');
+            setShow(true);
             return false;
         }
     }
@@ -176,6 +178,9 @@ export const DetalleJuego = () => {
                     <p>{juego.descripcion}</p>
 
                 </div>
+                <Modal title="Upps...!" onClose={() => setShow(false)} show={show}>
+                    <p>Debes loguearte para guardar tus preferencias</p>
+                </Modal>
             </div >
         );
     } else {
