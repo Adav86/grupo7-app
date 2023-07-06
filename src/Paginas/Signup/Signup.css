@@ -71,12 +71,8 @@
 }
 
 .btn-primary {
-  background: linear-gradient(
-    135deg,
-    rgba(175, 106, 252, 1) 39%,
-    rgba(116, 17, 255, 1) 100%
-  ) !important;
-  border: none;
+  background:#161645!important;
+  border:lime!important;
   border-radius: 50px;
 }
 
